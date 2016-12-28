@@ -1,18 +1,18 @@
 export default class Emoji {
   constructor ({
     aliases = null,
-    ascii_arts = null,
+    ascii_arts = null, // eslint-disable-line camelcase
     category = null,
-    code,
-    code_points = null,
+    code = '',
+    code_points = null, // eslint-disable-line camelcase
     keywords = null,
     name = null
   }) {
-    this.aliases = aliases || [],
-    this.asciiArts = ascii_arts || [],
-    this.category = category,
-    this.code = code,
-    this.codePoints = code_points || [],
+    this.aliases = aliases || []
+    this.asciiArts = ascii_arts || [] // eslint-disable-line camelcase
+    this.category = category
+    this.code = code
+    this.codePoints = code_points || [] // eslint-disable-line camelcase
     this.keywords = keywords || []
     this.name = name
   }
@@ -20,13 +20,13 @@ export default class Emoji {
   // @return [Array<String>]
   abbreviatedCodePoints () {
     return this.codePoints.map((codePoint) => {
-      return !("200D" <= codePoint && codePoint <= "FE0F")
+      return !('200D' <= codePoint && codePoint <= 'FE0F')
     })
   }
   // @return [String]
   basePath () {
-    if ( this.codePoints.length === 0 ) {
-      return code
+    if (this.codePoints.length === 0) {
+      return this.code
     } else {
       return `unicode/${this.codePoints.join('-')}`
     }
@@ -34,9 +34,9 @@ export default class Emoji {
 
   // @return [String, null] a String representation from its code points
   character () {
-    if ( this.codePoints.length !== 0 ) {
+    if (this.codePoints.length !== 0) {
       return this.codePoints.map((codePoint) => {
-        return String.fromCodePoint( parseInt(codePoint, 16) )
+        return String.fromCodePoint(parseInt(codePoint, 16))
       }).join()
     }
     return null
@@ -46,10 +46,10 @@ export default class Emoji {
   toObject () {
     return {
       aliases: this.aliases,
-      ascii_arts: this.asciiArts,
+      asciiArts: this.asciiArts,
       category: this.category,
       code: this.code,
-      code_points: this.codePoints,
+      codePoints: this.codePoints,
       keywords: this.keywords,
       name: this.name
     }
