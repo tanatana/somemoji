@@ -6,7 +6,7 @@
   "scripts": {
     "generate-definition-file": "node js/script/generate-monolithic-difinition-file.js",
     "build": "webpack --config js/webpack.config.js",
-    "test": "mocha js/test/**/*.js",
+    "test": "mocha js/test/**/*.js --compilers js:babel-register",
     "lint": "eslint js/src js/script js/test"
   },
   "repository": {

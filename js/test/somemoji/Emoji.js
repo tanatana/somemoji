@@ -1,8 +1,8 @@
-var assert = require('chai').assert
-var Emoji = require('../../dist/somemoji.js').Emoji
+import { assert } from 'chai'
+import { Emoji } from '../../src/somemoji'
 
 describe('Somemoji/Emoji', function () {
-  var emoji = new Emoji({
+  const emoji = new Emoji({
     aliases: [],
     ascii_arts: [],
     category: 'symbols',
