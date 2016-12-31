@@ -10,10 +10,6 @@ export default class EmojiCollection {
     return new EmojiCollection(this.emojis.concat(emojiCollection.emojis))
   }
 
-  forEach (fn) {
-    this.emojis.forEach(fn)
-  }
-
   filterByCategory (category) {
     let newEmojis = this.emojis.filter((emoji) => {
       return category === emoji.category
