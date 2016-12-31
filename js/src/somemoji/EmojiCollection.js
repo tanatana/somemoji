@@ -23,9 +23,9 @@ export default class EmojiCollection {
 
   filterByKeyword (keyword) {
     const newEmojis = this.emojis.filter((emoji) => {
-      return emoji.keywords.reduce((hasKeyword, emojiKeyword) => {
-        return (keyword === emojiKeyword) || hasKeyword
-      }, false)
+      return emoji.keywords.some((emojiKeyword) => {
+        return keyword === emojiKeyword
+      })
     })
     return new EmojiCollection(newEmojis)
   }
@@ -52,9 +52,9 @@ export default class EmojiCollection {
 
   searchByCode (pattern) {
     const newEmojis = this.emojis.filter((emoji) => {
-      return pattern.test(emoji.code) || emoji.aliases.reduce((hasAlias, aliasCode) => {
-        return (pattern.test(aliasCode)) || hasAlias
-      }, false)
+      return pattern.test(emoji.code) || emoji.aliases.some((aliasCode) => {
+        return pattern.test(aliasCode)
+      })
     })
     return new EmojiCollection(newEmojis)
   }
