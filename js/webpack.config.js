@@ -1,6 +1,6 @@
 module.exports = {
   context: __dirname,
-  entry: './src/main.js',
+  entry: './src/somemoji/index.js',
   output: {
     filename: 'somemoji.js',
     path: __dirname + '/dist',

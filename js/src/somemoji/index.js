@@ -1,4 +1,3 @@
-import 'babel-polyfill'
 import Emoji from './Emoji'
 import EmojiCollection from './EmojiCollection'
 import EmojiDefinitions from './EmojiDefinitions.json'
