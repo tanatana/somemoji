@@ -39,9 +39,7 @@ export default class Emoji {
   // @return [String, null] a String representation from its code points
   character () {
     if (this.codePoints.length !== 0) {
-      return this.codePoints.map((codePoint) => {
-        return String.fromCodePoint(parseInt(codePoint, 16))
-      }).join('')
+      return String.fromCodePoint(...this.codePoints)
     }
     return null
   }
