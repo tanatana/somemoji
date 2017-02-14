@@ -805,6 +805,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (this.codePoints.length === 0) {
 	        return this.code;
 	      } else {
+	        if (this.codePoints[0].length < 4) {
+	          this.codePoints[0] = ('0000' + this.codePoints[0]).slice(-4);
+	        }
 	        return 'unicode/' + this.codePoints.join('-');
 	      }
 	    }
