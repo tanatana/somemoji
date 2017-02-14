@@ -19,8 +19,9 @@ export default class Emoji {
 
   // @return [Array<String>]
   abbreviatedCodePoints () {
-    return this.codePoints.map((codePoint) => {
-      return !('200D' <= codePoint && codePoint <= 'FE0F')
+    return this.codePoints.filter((codePoint) => {
+      let upperCasedCodePoint = codePoint.toUpperCase()
+      return !('200D' === upperCasedCodePoint || upperCasedCodePoint === 'FE0F')
     })
   }
   // @return [String]
